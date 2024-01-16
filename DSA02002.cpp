@@ -31,7 +31,7 @@ int main(){
 				a[i]=v[i];
 			}
 		}
-		for(int i=ans.size()-1;i>=0;--i){
+		for(int i=0;i<=ans.size()-1;i++){
 			cout<<"[";
 			for(int j=0;j<ans[i].size();++j){
 				if(j!=ans[i].size()-1){
@@ -41,9 +41,10 @@ int main(){
 					cout<<ans[i][j]<<"]";
 				}
 			}
-			cout<<" ";
+			cout<<"\n";
 		}
 		cout<<el;
 	}
+	system("pause");
 }
 
