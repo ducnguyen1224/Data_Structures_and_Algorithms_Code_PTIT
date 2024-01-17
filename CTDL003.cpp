@@ -1,48 +1,34 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int a[1005],ok,n;
+
 string s;
-void init(){
-  cin>>s;
-  n=s.size();
-  for(int i=0;i<s.size();i++){
-    a[i+1]=s[i]-'0';
-  }
-  ok=1;
-}
-void in(){
-   if(!ok){
-    for(int i=0;i<n;i++){
-      cout<<0;
-    }
-  }
-  else{
-  for(int i=1;i<=n;i++){
-    cout<<a[i];
-  }
-  }
-}
-void next(){
-  int i=n;
-  while(i>0&&a[i]==1){
-    a[i]=0;
+void sinh()
+{
+  int i = s.size() - 1;
+  while (i >= 0 && s[i] == '1')
+  {
+    s[i] = '0';
     i--;
   }
-  if(i<=0){
-    ok=0;
+  if (i < 0)
+  {
+    for (int j = 0; j < s.size(); j++)
+      s[j] = '0';
   }
-  else{
-    a[i]=1;
+  else
+  {
+    s[i] = '1';
   }
 }
-int main(){
+int main()
+{
   int t;
-  cin>>t;
-  while(t--){
-  init();
-  next();
-  in();
-  cout<<"\n";
+  cin >> t;
+  while (t--)
+  {
+    cin >> s;
+    sinh();
+    cout << s << endl;
   }
   system("pause");
 }
