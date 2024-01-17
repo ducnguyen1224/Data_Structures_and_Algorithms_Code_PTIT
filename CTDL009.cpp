@@ -8,7 +8,7 @@ string bien_doi(string s){
   int l=s.size();
   string ans(l,'0');
   ans[0]=s[0];
-  for(int i=1;i<s.size();i++){
+  for(int i=1;i<l;i++){
     ans[i]=Xor(ans[i-1],s[i]);
   }
   return ans;
