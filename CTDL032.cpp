@@ -1,35 +1,22 @@
-#include <iostream>
-#include <vector>
+#include <cstdio>
+#include<bits/stdc++.h>
+#define mod 1000000000
 using namespace std;
-
-const long long MOD = 1000000007;
-
-int main() {
-    long long n, k;
-    cin >> n >> k;
-
-    vector<long long> f0(n+1, 0);
-    vector<long long> f1(n+1, 0);
-
-    f0[0] = 1;
-    f1[0] = 1;
-
-    long long sum_f0 = f0[0];
-    long long sum_f1 = f1[0];
-
-    for (long long i = 1; i <= n; i++) {
-        if (i - k - 1 >= 0) {
-            sum_f1 = (sum_f1 - f1[i-k-1] + MOD) % MOD;
-            sum_f0 = (sum_f0 - f0[i-k-1] + MOD) % MOD;
-        }
-        f0[i] = sum_f1;
-        f1[i] = sum_f0;
-
-        sum_f0 = (sum_f0 + f1[i]) % MOD;
-        sum_f1 = (sum_f1 + f0[i]) % MOD;
-    }
-
-    cout << (f0[n] + f1[n]) % MOD << endl;
-
-    return 0;
+ 
+int f[1111111],n,k;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		memset(f,0,sizeof(f));
+     scanf("%d %d",&n,&k);
+     f[0] = 2; f[1] = 2;
+     for(int i = 2;i<=n;i++){
+          if(i<=k) f[i] = (f[i-1]*2)%mod;
+          else f[i] = (f[i-1]*2-f[i-k-1])%mod;
+          if(f[i]<0) f[i]+=mod;
+     }
+     printf("%d\n",f[n]);
+ }
+  
 }

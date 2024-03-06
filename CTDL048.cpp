@@ -25,5 +25,5 @@ int main()
       }
     }
   }
-  system("pause");
+ //system("pause");
 }
