@@ -1,51 +1,72 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int n,a[100],ok;
-void init(){
-  cin>>n;
-  ok=1;
-  memset(a,0,sizeof(a));
+int n, a[100], ok;
+void init()
+{
+  cin >> n;
+  ok = 1;
+  memset(a, 0, sizeof(a));
 }
-void in(){
-  for(int i=1;i<=n;i++){
-    cout<<a[i];
+void in()
+{
+  for (int i = 1; i <= n; i++)
+  {
+    cout << a[i];
   }
-  cout<<" ";
+  cout << " ";
 }
-void next(){
-  int i=n;
-  while(i>0&&a[i]==1){
-    a[i]=0;
+void next()
+{
+  int i = n;
+  while (i > 0 && a[i] == 1)
+  {
+    a[i] = 0;
     i--;
   }
-  if(i<=0){
-    ok=0;
+  if (i <= 0)
+  {
+    ok = 0;
   }
-  else{
-    a[i]=1;
+  else
+  {
+    a[i] = 1;
   }
 }
-bool check(){
-  int ans=0;
-  for(int i=1;i<n-1;i++){
-    if(a[i]==0&&a[i+1]==1){
+bool check()
+{
+  int ans = 0;
+  for (int i = 1; i <= n - 1; i++)
+  {
+    if (a[i] == 0 && a[i + 1] == 1)
+    {
       ans++;
     }
   }
-  return ans==2;
+  return ans == 2;
 }
-int main(){
+int main()
+{
   int t;
-  cin>>t;
-  while(t--){
+  cin >> t;
+  while (t--)
+  {
     init();
-    while(ok){
-      if(check()){
-        in();
-      }
-      next();
+    if (n <= 3)
+    {
+      cout << "\n";
     }
-    if(t>0) cout<<"\n";
+    else
+    {
+      while (ok)
+      {
+        if (check())
+        {
+          in();
+        }
+        next();
+      }
+      cout << "\n";
+    }
   }
-  system("pause");
+  //system("pause");
 }
