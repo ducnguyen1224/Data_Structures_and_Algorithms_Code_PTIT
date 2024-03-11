@@ -1,15 +1,23 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int main(){
+int a[1005][1005];
+int main()
+{ int t;
+  cin>>t;
+  while(t--){
+  memset(a,0,sizeof(a));
   int n;
   cin>>n;
-  int a[n+1][n+1];
-  memset(a,0,sizeof(a));
+  cin.ignore();
   for(int i=1;i<=n;i++){
-    int x,y;
-    cin>>x>>y;
-    a[x][y]=1;
-    a[y][x]=1;
+    string s;
+    getline(cin,s);
+    stringstream ss(s);
+    string token;
+    while(ss>>token){
+      a[i][stoll(token)]=1;
+      a[stoll(token)][i]=1;
+    }
   }
   for(int i=1;i<=n;i++){
     for(int j=1;j<=n;j++){
@@ -17,5 +25,6 @@ int main(){
     }
     cout<<"\n";
   }
-  system("pause");
+  }
+ return 0;
 }
