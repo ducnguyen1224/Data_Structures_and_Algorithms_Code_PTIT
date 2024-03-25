@@ -10,12 +10,7 @@ void sinh()
     s[i] = '0';
     i--;
   }
-  if (i < 0)
-  {
-    for (int j = 0; j < s.size(); j++)
-      s[j] = '0';
-  }
-  else
+  if (i >= 0)
   {
     s[i] = '1';
   }
@@ -30,5 +25,5 @@ int main()
     sinh();
     cout << s << endl;
   }
-  system("pause");
+  return 0;
 }
