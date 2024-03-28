@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n,m,p;
+		cin>>n;
+		int a[n];
+		for(int i=0;i<n;i++){
+			cin>>a[i];
+		}
+		cin>>m;
+		int b[m];
+		for(int i=0;i<m;i++){
+			cin>>b[i];
+		}
+		cin>>p;
+		int c[p];
+		for(int i=0;i<p;i++){
+			cin>>c[i];
+		}
+		int dp[n+1][m+1][p+1];
+		for(int i=0;i<=n;i++){
+			for(int j=0;j<=m;j++){
+				for(int k=0;k<=p;k++){
+					if(i==0||j==0||k==0){
+						dp[i][j][k]=0;
+					}
+					else if(a[i-1]==b[j-1] && b[j-1]==c[k-1]){
+						dp[i][j][k]=dp[i-1][j-1][k-1]+1;
+					}
+					else{
+						dp[i][j][k]=max(dp[i-1][j][k],max(dp[i][j-1][k],dp[i][j][k-1]));
+					}
+				}
+			}
+		}
+		cout<<dp[n][m][p]<<"\n";
+	}
+}
