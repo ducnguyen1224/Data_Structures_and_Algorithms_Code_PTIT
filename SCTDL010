@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+void sinh(string s,int dem1,int dem0,int n){
+	if(s.size()==n){
+		cout<<s<<" ";
+		return ;
+	}
+    if(dem1<n/2){
+    	sinh(s+"1",dem1+1,dem0,n);
+	}
+	if(dem0<n/2){
+		sinh(s+"0",dem1,dem0+1,n);
+	}
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		string s="";
+		if(n==0||n%2==1){
+			cout<<"-1";
+		}
+		else{
+			sinh(s,0,0,n);
+		}
+		cout<<"\n";
+	}
+}
