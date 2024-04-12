@@ -1,10 +1,14 @@
 #include <bits/stdc++.h>
 #define endl "\n"
+//đọc kĩ đầu bài nó bảo có bộ test kìa nhưng test dưới sai thôi t cũng điên đảo lắm 
 using namespace std;
 int main()
 {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
+	int t;
+	cin>>t;
+	while(t--){
 	int n;
 	cin >> n;
 	int b = n - 1;
@@ -32,5 +36,5 @@ int main()
 		for (int j = 0; j <= b + 1; j++)
 			cout << a[j] << " ";
 		cout << endl;
-	}
+	}}
 }
