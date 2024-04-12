@@ -1,23 +1,37 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-  int t;
-  cin>>t;
-  cin.ignore();
-  while(t--){
-    string s;
-    getline(cin,s);
-    stringstream ss(s);
-    string tmp;
-    vector<string>v;
-    while(ss>>tmp){
-      reverse(tmp.begin(),tmp.end());
-      v.push_back(tmp);
+//tham khảo nhé 
+string reverseWord(string word) {
+    stack<char> s;
+    for (char c : word) {
+        s.push(c);
     }
-    for(int i=0;i<v.size();i++){
-      cout<<v[i]<<" ";
+    string reversedWord = "";
+    while (!s.empty()) {
+        reversedWord += s.top();
+        s.pop();
     }
-    cout<<"\n";
-  }
-  system("pause");
+    return reversedWord;
+}
+
+string reverse(string ) {
+    stringstream ss();
+    string word;
+    string reversed = "";
+    while (ss >> word) {
+        reversed += reverseWord(word) + " ";
+    }
+    return reversed;
+}
+
+int main() {
+    int t;
+    cin >> t;
+    cin.ignore();
+    while (t--) {
+        string s;
+        getline(cin, s);
+        cout << reverse(s) << "\n";
+    }
+    return 0;
 }
